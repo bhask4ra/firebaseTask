@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111111" />
+    <title>Tareas PWA</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <h1>Tareas</h1>
+        <div id="userBar" class="user-bar hidden">
+          <span id="userEmail"></span>
+          <button id="logoutBtn" type="button">Cerrar sesion</button>
+        </div>
+      </header>
+
+      <main id="main">
+        <section id="authView" class="view">
+          <form id="authForm" class="card">
+            <h2 id="authTitle">Iniciar sesion</h2>
+            <label>Email<input id="email" type="email" required autocomplete="email" /></label>
+            <label>Contrasena<input id="password" type="password" required minlength="6" autocomplete="current-password" /></label>
+            <button type="submit" id="authSubmit">Entrar</button>
+            <button type="button" id="googleBtn">Continuar con Google</button>
+            <p class="switch">
+              <a href="#" id="toggleMode">Crear cuenta</a>
+            </p>
+            <p id="authError" class="error" role="alert"></p>
+          </form>
+        </section>
+
+        <section id="tasksView" class="view hidden">
+          <form id="taskForm" class="card row">
+            <input id="taskInput" type="text" placeholder="Nueva tarea..." required maxlength="200" />
+            <button type="submit">Agregar</button>
+          </form>
+          <ul id="taskList" class="task-list"></ul>
+          <p id="tasksEmpty" class="muted hidden">Sin tareas todavia.</p>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
